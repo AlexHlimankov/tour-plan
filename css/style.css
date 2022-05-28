@@ -797,6 +797,10 @@ template {
   overflow: hidden;
 }
 
+.swiper {
+  margin: 0;
+}
+
 .newsletter {
   position: relative;
   padding: 98px 0 87px 0;
@@ -1029,11 +1033,101 @@ template {
   text-align: justify;
 }
 
+.activities {
+  padding: 0px 0 98px 0;
+}
+
+.activities__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 58px;
+}
+
+.activities-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 255px;
+  height: 255px;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 24px 26px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(179.83deg, rgba(196, 196, 196, 0) 35.34%, #0A223D 99.85%);
+  z-index: -1;
+}
+
+.card__image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -2;
+  height: 100%;
+  width: 100%;
+}
+
+.card__title {
+  margin-top: auto;
+  z-index: 2;
+  color: #ffffff;
+  margin-bottom: 18px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.card__button {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+  padding: 7px 22px;
+  background-color: #EC1F46;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
 @media (max-width: 1200px) {
   .container {
     max-width: 960px;
   }
-  .slider {
+  .hotel-slider {
     width: 590px;
   }
   .hotel-slider__image {
@@ -1041,6 +1135,10 @@ template {
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  .card {
+    width: 230px;
+    height: 230px;
   }
 }
 
@@ -1096,6 +1194,20 @@ template {
   }
   .reviews-slider__item {
     max-width: 580px;
+  }
+  .activities-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .activities__card {
+    margin-bottom: 26px;
+  }
+  .card {
+    width: 48%;
+    height: 230px;
   }
 }
 
@@ -1165,9 +1277,6 @@ template {
         -ms-flex-order: -1;
             order: -1;
     margin-left: 0;
-  }
-  .slider {
-    height: 350px;
   }
   .hotel-right {
     -webkit-box-orient: vertical;
@@ -1243,6 +1352,13 @@ template {
     line-height: 23px;
     max-width: 245px;
     margin: 40px auto;
+  }
+  .activities__title {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  .card {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=style.css.map */

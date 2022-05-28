@@ -1,14 +1,16 @@
 @media (max-width: 1200px)
   .container
     max-width: 960px
-  .slider
-    width: 590px
   .hotel
     &-slider
+      width: 590px
       &__image
         height: 100%
         width: 100%
         object-fit: cover
+  .card
+    width: 230px
+    height: 230px
 @media (max-width: 992px)
   .container,
   .newsletter-wrapper
@@ -47,6 +49,15 @@
     &-slider
       &__item
         max-width: 580px
+  .activities
+    &-wrapper
+      display: flex
+      flex-wrap: wrap
+    &__card
+      margin-bottom: 26px
+  .card
+    width: 48%
+    height: 230px
 @media (max-width: 768px)
   .container
     max-width: 576px
@@ -91,9 +102,6 @@
       &__offer
         order: -1
         margin-left: 0
-  .slider
-    height: 350px
-  .hotel
     &-right
       flex-direction: column
       min-height: 450px
@@ -145,3 +153,9 @@
       line-height: 23px
       max-width: 245px
       margin: 40px auto
+  .activities
+    &__title
+      font-size: 18px
+      line-height: 23px
+  .card
+    width: 100%
