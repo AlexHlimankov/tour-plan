@@ -18,6 +18,25 @@ img {
   max-width: 100%;
 }
 
+input {
+  background-color: #fff;
+  border-radius: 4px;
+  border: none;
+  padding: 0 23px;
+  height: 50px;
+  outline-offset: 0;
+  outline: 0;
+}
+
+.message {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 18px 23px;
+  border: none;
+  outline: 0;
+  outline-offset: 0;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -414,6 +433,10 @@ template {
   text-transform: uppercase;
   font-size: 14px;
   line-height: 18px;
+}
+
+.navbar-menu__item--mobile-visible {
+  display: none;
 }
 
 .logo {
@@ -1267,25 +1290,12 @@ template {
 }
 
 .footer__input {
-  background-color: #fff;
-  border-radius: 4px;
-  border: none;
-  padding: 0 23px;
-  height: 50px;
   margin-bottom: 15px;
   -ms-flex-preferred-size: 48%;
       flex-basis: 48%;
-  outline: 0;
-  outline-offset: 0;
 }
 
 .footer__message {
-  background-color: #fff;
-  border-radius: 4px;
-  padding: 18px 23px;
-  border: none;
-  outline: 0;
-  outline-offset: 0;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   margin-bottom: 23px;
@@ -1310,6 +1320,101 @@ template {
   font-size: 12px;
   line-height: 15px;
   color: #BDBDBD;
+}
+
+.modal__overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 143, 223, 0.39);
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.modal__overlay--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 478px;
+  padding: 33px 88px;
+  background-color: #0A223D;
+  color: #ffffff;
+  border-radius: 8px;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
+.modal__dialog--visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal__input {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.modal__message {
+  width: 100%;
+  min-width: 123px;
+  overflow: visible;
+  margin-bottom: 15px;
+}
+
+.modal__button {
+  min-width: 160px;
+  min-height: 50px;
+  padding: 18px;
+  color: #ffffff;
+  background-color: #EC1F46;
+  border-radius: 4px;
+  border: none;
+  outline: 0;
+  outline-offset: 0;
+}
+
+.modal__info {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  color: #BDBDBD;
+  margin-left: 10px;
+}
+
+.modal__title {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 @media (max-width: 1200px) {
@@ -1451,16 +1556,64 @@ template {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-top: 78px;
+  }
   .container {
     max-width: 576px;
     width: 92%;
   }
-  .navbar__search, .navbar-menu, .navbar__user {
+  .navbar--mobile-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+  }
+  .navbar__user--mobile-hidden, .navbar__search--mobile-hidden {
     display: none;
+  }
+  .navbar__user--mobile-visible, .navbar__search--mobile-visible {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .navbar__user {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .navbar-bottom {
+    display: none;
+    position: fixed;
+    top: 74px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 30px;
+  }
+  .navbar-bottom--visible {
+    display: block;
   }
   .navbar-top {
     padding-top: 28px;
     padding-bottom: 28px;
+  }
+  .navbar-menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .navbar-menu__item {
+    margin-bottom: 20px;
+  }
+  .navbar-menu__item--mobile-visible {
+    display: block;
   }
   .menu-button {
     display: -webkit-box;
@@ -1487,6 +1640,11 @@ template {
     width: 16px;
     height: 1px;
     background-color: #333333;
+  }
+  .user__name--light {
+    color: #ffffff;
+    margin-top: 10px;
+    margin-left: 0;
   }
   .stars {
     -ms-flex-preferred-size: content;
